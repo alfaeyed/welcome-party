@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome Party | BSc AI Juniors 2025</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px 20px;
+      border-bottom: 1px solid #111;
+    }
+
+    .logo {
+      width: 90px;
+      margin-bottom: 10px;
+    }
+
+    .title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      padding: 60px 10%;
+      gap: 60px;
+    }
+
+    .event-details, .registration-form {
+      background-color: #0d0d0d;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+      flex: 1;
+      min-width: 320px;
+      max-width: 500px;
+      transition: transform 0.3s ease;
+    }
+
+    .event-details:hover, .registration-form:hover {
+      transform: translateY(-5px);
+    }
+
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      color: #f0f0f0;
+    }
+
+    p {
+      color: #aaa;
+      margin: 8px 0;
+      font-size: 1rem;
+    }
+
+    .highlight {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background-color: #1a1a1a;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: background 0.3s ease;
+    }
+
+    input:focus {
+      background-color: #222;
+    }
+
+    input[type="file"] {
+      background: none;
+    }
+
+    button {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      padding: 14px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.5px;
+    }
+
+    button:hover {
+      background-color: #bbb;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #777;
+      font-size: 0.95rem;
+      border-top: 1px solid #111;
+    }
+
+    footer strong {
+      color: #ddd;
+    }
+
+    @media (max-width: 900px) {
+      .content {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 5%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="colored-logo.png" alt="AI Khandaan Logo" class="logo" />
+    <h1 class="title">Welcome Party — BSc AI Juniors 2025</h1>
+  </header>
+
+  <main class="content">
+    <div class="event-details">
+      <h2>Event Details</h2>
+      <p><span class="highlight">Venue:</span> Nishat Hotel, Johar Town, Lahore</p>
+      <p><span class="highlight">Date:</span> To be announced</p>
+      <p><span class="highlight">Time:</span> 11 AM – 4 PM</p>
+      <p><span class="highlight">Charges:</span> Rs. 2750 PKR</p>
+      <p><span class="highlight">Payment:</span> 03186417431 (Alfaid Naveed – NayaPay)</p>
+    </div>
+
+    <div class="registration-form">
+      <h2>Registration Form</h2>
+      <form name="welcome-form" method="POST" data-netlify="true" enctype="multipart/form-data" action="thankyou.html">
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="text" name="roll" placeholder="Roll Number" required />
+        <input type="text" name="section" placeholder="Section" required />
+        <input type="text" name="number" placeholder="Phone Number" required />
+        <label>Upload Payment Screenshot:</label>
+        <input type="file" name="payment-proof" accept="image/*" required />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p><strong>Organized by AI SENIORS | UET Lahore</strong></p>
+    <p>© 2025 Welcome Party Committee</p>
+  </footer>
+</body>
+</html>
