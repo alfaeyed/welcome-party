@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome Party Registration</title>
+  <style>
+    body { font-family: Arial; background: #f7f7f7; padding: 30px; }
+    .container { max-width: 500px; margin: auto; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    input, select, textarea { width: 100%; margin: 10px 0; padding: 8px; }
+    button { background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #0056b3; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome Party Registration (BSc AI Juniors)</h2>
+    <p><b>Venue:</b> Nishat Hotel, Johar Town, Lahore</p>
+    <p><b>Timing:</b> 11 AM - 4 PM | <b>Charges:</b> Rs. 2750</p>
+    <p><b>Account:</b> 03186417431 (Alfaid Naveed - NayaPay)</p>
+    <form id="regForm">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="text" name="rollNo" placeholder="Roll Number" required>
+      <input type="text" name="section" placeholder="Section" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="file" name="screenshot" accept="image/*" required>
+      <textarea name="message" placeholder="Any message (optional)"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="status"></p>
+  </div>
+
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycby8t3LZGzmWz0IklJmYwEJrxj-pA5vwcp6FN89h6Dnkg7vbBWBN2v2PS8si3bl7B7Qbfg/exec";
+
+    document.getElementById("regForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const file = form.screenshot.files[0];
+      const reader = new FileReader();
+
+      reader.onload = async () => {
+        const data = {
+          name: form.name.value,
+          rollNo: form.rollNo.value,
+          section: form.section.value,
+          phone: form.phone.value,
+          screenshot: reader.result,
+          message: form.message.value
+        };
+
+        const res = await fetch(scriptURL, {
+          method: "POST",
+          body: JSON.stringify(data)
+        });
+
+        document.getElementById("status").innerText = "✅ Form submitted successfully!";
+        form.reset();
+      };
+
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>
